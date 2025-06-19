@@ -41,6 +41,7 @@ async def tts_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+    app.add_handler(CommandHandler("lavoz", tts_handler))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), tts_handler))
     print("✅ Bot en marxa! Esperant missatges...")
     app.run_polling()
